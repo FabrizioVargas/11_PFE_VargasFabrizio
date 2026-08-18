@@ -1,4 +1,4 @@
-S01-biblioteca/node_modules/
-S01-biblioteca/dist/
-S01-biblioteca/.angular/
+**/node_modules/
+**/dist/
+**/.angular/
 *.log
