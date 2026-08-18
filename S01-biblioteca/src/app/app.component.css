@@ -1,0 +1,10 @@
+:host { display: block; min-height: 100vh; background: #f4f4f4; font-family: Arial, sans-serif; color: #222; }
+main { max-width: 900px; margin: auto; padding: 30px 20px; }
+header { border-bottom: 2px solid #2d6a4f; padding-bottom: 15px; margin-bottom: 25px; }
+h1 { margin: 0 0 8px; color: #2d6a4f; } h2 { margin-top: 0; font-size: 20px; } p { line-height: 1.5; }
+section { background: white; border: 1px solid #ccc; padding: 20px; margin-bottom: 20px; }
+.contadores { display: flex; gap: 20px; }.contadores div { border: 1px solid #ddd; padding: 15px; width: 150px; text-align: center; }.contadores strong { display: block; color: #2d6a4f; font-size: 28px; }.contadores span { font-size: 14px; }
+.titulo-seccion { display: flex; justify-content: space-between; align-items: center; gap: 15px; } button { background: #2d6a4f; color: white; border: 0; padding: 10px 12px; margin-left: 6px; cursor: pointer; } button:hover { background: #1f5139; }.formulario { display: flex; gap: 8px; margin: 18px 0; }.formulario input { width: 100%; padding: 9px; border: 1px solid #bbb; }.formulario button { white-space: nowrap; }
+.mensaje { color: #176b3a; font-weight: bold; } table { width: 100%; border-collapse: collapse; margin-top: 15px; } th, td { border: 1px solid #ccc; padding: 10px; text-align: left; } th { background: #e8f1ec; }.bajo { color: #b42318; font-weight: bold; }
+.eliminar { background: #b42318; padding: 7px 9px; margin: 0; }.eliminar:hover { background: #8d1c13; }.alerta { border-left: 5px solid #d97706; background: #fff8e8; } footer { text-align: center; color: #666; font-size: 14px; padding: 10px; }
+@media (max-width: 600px) { .contadores, .titulo-seccion, .formulario { flex-direction: column; align-items: stretch; }.contadores div { width: auto; } button { margin: 4px 0; width: 100%; } table { font-size: 13px; } }

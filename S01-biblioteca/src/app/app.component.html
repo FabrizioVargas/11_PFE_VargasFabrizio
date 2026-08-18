@@ -1,0 +1,58 @@
+<main>
+  <header>
+    <h1>Sistema de Inventario</h1>
+    <p>Control de productos y materiales del almacen.</p>
+  </header>
+
+  <section class="resumen">
+    <h2>Resumen</h2>
+    <div class="contadores">
+      <div><strong>{{ productos.length }}</strong><span>Productos</span></div>
+      <div><strong>{{ totalUnidades }}</strong><span>Unidades</span></div>
+      <div><strong>{{ stockBajo }}</strong><span>Stock bajo</span></div>
+    </div>
+  </section>
+
+  <section class="productos">
+    <div class="titulo-seccion">
+      <h2>Lista de productos</h2>
+      <div>
+        <button type="button" (click)="alternarStockBajo()">{{ mostrarSoloStockBajo ? 'Mostrar todos' : 'Ver stock bajo' }}</button>
+      </div>
+    </div>
+
+    <div class="formulario">
+      <input type="text" [(ngModel)]="nombreNuevo" placeholder="Nombre del producto">
+      <input type="text" [(ngModel)]="codigoNuevo" placeholder="Codigo">
+      <input type="number" [(ngModel)]="stockNuevo" placeholder="Stock" min="0">
+      <button type="button" (click)="registrarEntrada()">Agregar producto</button>
+    </div>
+
+    <p class="mensaje" *ngIf="mensaje">{{ mensaje }}</p>
+
+    <table>
+      <thead>
+        <tr><th>Producto</th><th>Codigo</th><th>Stock</th><th>Estado</th><th>Accion</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of productosVisibles">
+          <td>{{ producto.nombre }}</td>
+          <td>{{ producto.codigo }}</td>
+          <td>{{ producto.stock }}</td>
+          <td [class.bajo]="producto.stock <= producto.minimo">
+            {{ producto.stock <= producto.minimo ? 'Stock bajo' : 'Disponible' }}
+          </td>
+          <td><button type="button" class="eliminar" (click)="eliminarProducto(producto.codigo)">Eliminar</button></td>
+        </tr>
+        <tr *ngIf="productosVisibles.length === 0"><td colspan="5">No hay productos con stock bajo.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="alerta">
+    <h2>Alerta</h2>
+    <p>Actualmente hay {{ stockBajo }} productos que necesitan reposicion.</p>
+  </section>
+
+  <footer>Desarrollado por Fabrizio Vargas</footer>
+</main>
