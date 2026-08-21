@@ -1,0 +1,20 @@
+<nav class="navbar" aria-label="Navegación principal">
+  <a class="brand" href="#inicio"><span class="brand-mark">FV</span><span>Fabrizio Vargas</span></a>
+  <div class="menu"><a href="#inicio">Inicio</a><a href="#sobre-mi">Sobre mí</a><a href="#habilidades">Habilidades</a><a href="#proyectos">Proyectos</a><a href="#contacto">Contacto</a></div>
+</nav>
+
+<main>
+  <section id="inicio" class="inicio section-shell">
+    <div class="presentacion"><h1>Hola, soy <span>Fabrizio.</span></h1><h2>{{ profesion }}</h2><p>{{ descripcion }}</p><div class="botones"><a href="#proyectos" class="button principal">Ver proyectos <b>↗</b></a><a href="#contacto" class="button secundario">Contactarme</a></div></div>
+  </section>
+
+  <section id="sobre-mi" class="seccion sobre-mi section-shell"><div class="titulo"><span class="numero">01</span><h2>Sobre mí</h2></div><div class="sobre-grid"><div><p class="frase">La tecnología ayuda a las empresas a organizar mejor sus procesos y convertir sus ideas en soluciones reales.</p><p>Me gusta analizar necesidades, aprender nuevas herramientas y crear proyectos que combinen lógica, organización y una experiencia visual clara. Actualmente me preparo en <strong>Análisis de Sistemas Empresariales</strong>.</p></div><div class="dato"><span>MI ENFOQUE</span><strong>Aprender haciendo</strong><p>Cada proyecto me permite practicar, mejorar y encontrar nuevas formas de resolver problemas empresariales.</p></div></div></section>
+
+  <section id="habilidades" class="seccion habilidades-seccion"><div class="section-shell"><div class="titulo"><span class="numero">02</span><h2>Mis habilidades</h2></div><p class="subtitulo">Tecnologías que conozco y estoy aprendiendo.</p><div class="habilidades">@for (habilidad of habilidades; track habilidad.nombre) {<article attr.data-descripcion="{{ habilidad.descripcion }}"><span class="programa-icon {{ habilidad.clase }}">{{ habilidad.icono }}</span><h3>{{ habilidad.nombre }}</h3></article>}</div></div></section>
+
+  <section id="proyectos" class="seccion section-shell"><div class="titulo"><span class="numero">03</span><h2>Mis proyectos</h2></div><p class="subtitulo">Proyectos realizados durante segundo y tercer semestre.</p><div class="proyectos">@for (proyecto of proyectos; track proyecto.nombre) {<article class="proyecto {{ proyecto.clase }}"><div class="proyecto-icon">{{ $index + 1 }}</div><span>PROYECTO 0{{ $index + 1 }}</span><h3>{{ proyecto.nombre }}</h3><p>{{ proyecto.descripcion }}</p>@if (proyecto.enlace) {<a href="{{ proyecto.enlace }}" target="_blank" rel="noopener noreferrer">Ver proyecto <b>↗</b></a>} @else {<span class="sin-enlace">Proyecto personal</span>}</article>}</div></section>
+
+  <section id="contacto" class="contacto"><div class="section-shell contacto-inner"><div><span class="etiqueta">04 · CONTACTO</span><h2>Contáctame</h2></div><div class="datos-contacto"><a class="correo" href="mailto:{{ correo }}">{{ correo }}</a><p class="ubicacion">{{ ubicacion }}</p><a class="github-button" href="https://github.com/FabrizioVargas" target="_blank" rel="noopener noreferrer">Ver mi GitHub</a></div></div></section>
+</main>
+
+<footer class="footer section-shell"><span class="brand-mark">FV</span><span>Fabrizio Vargas · Portafolio profesional</span><span>© 2026</span></footer>

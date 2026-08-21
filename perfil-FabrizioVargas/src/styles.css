@@ -1,0 +1,5 @@
+:root { --ink: #181b25; --muted: #686b74; --cream: #f7f6f2; --sand: #e9e5dc; --coral: #e26b52; --gold: #e4b55b; --blue: #527a9c; --orange: #cf6c3d; --line: #d9d7d0; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f8fafc; color: var(--ink); font-family: Arial, sans-serif; }
+::selection { background: var(--gold); color: var(--ink); }
