@@ -1,59 +1,63 @@
-# SPRINT2RPEstudiantes
+# Gestión de Estudiantes
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
+Aplicación web desarrollada con Angular para administrar la información de los
+estudiantes mediante un CRUD completo. El sistema permite registrar, consultar,
+editar y eliminar estudiantes desde una interfaz sencilla y organizada.
 
-## Development server
+## Funcionalidades
 
-To start a local development server, run:
+- Registrar nuevos estudiantes con sus datos principales.
+- Visualizar los estudiantes registrados en tarjetas individuales.
+- Buscar estudiantes por nombre o información relacionada.
+- Filtrar el listado por grado.
+- Editar la información de un estudiante existente.
+- Eliminar estudiantes del listado.
 
-```bash
-ng serve
-```
+Cada estudiante muestra información como nombre, grado, edad, correo y promedio.
+La aplicación está organizada en componentes para las tarjetas, el formulario y
+el listado de estudiantes.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Tecnologías utilizadas
 
-## Code scaffolding
+- Angular 19
+- TypeScript
+- HTML y CSS
+- Jasmine y Karma para pruebas unitarias
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Instalación
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Se necesita tener instalado Node.js. Para instalar las dependencias del proyecto,
+ejecuta:
 
 ```bash
-ng test
+npm install
 ```
 
-## Running end-to-end tests
+## Servidor de desarrollo
 
-For end-to-end (e2e) testing, run:
+Para iniciar la aplicación localmente, ejecuta:
 
 ```bash
-ng e2e
+npm start
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Después, abre `http://localhost:4200/` en el navegador. La aplicación se
+recargará automáticamente cuando se modifique el código.
 
-## Additional Resources
+## Compilación
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Para generar una compilación optimizada del proyecto, ejecuta:
+
+```bash
+npm run build
+```
+
+Los archivos generados se guardarán en la carpeta `dist/`.
+
+## Pruebas unitarias
+
+Para ejecutar las pruebas unitarias configuradas con Jasmine y Karma, utiliza:
+
+```bash
+npm test
+```
