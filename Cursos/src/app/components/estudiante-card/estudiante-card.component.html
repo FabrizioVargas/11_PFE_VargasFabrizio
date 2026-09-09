@@ -1,0 +1,27 @@
+<article class="student-card" *ngIf="curso">
+  <div class="card-top">
+    <div class="student-heading">
+      <span class="avatar">{{ iniciales }}</span>
+      <div>
+        <h3>{{ curso.nombre }}</h3>
+        <p>{{ curso.categoria }}</p>
+      </div>
+    </div>
+    <span class="status-badge" [class.status-warning]="estadoCurso === 'Intermedio'" [class.status-danger]="estadoCurso === 'Inicial'">
+      {{ estadoCurso }}
+    </span>
+  </div>
+
+  <div class="student-info">
+    <p><span>Instructor</span><strong>{{ curso.instructor }}</strong></p>
+    <p><span>Modalidad</span><strong>{{ curso.modalidad }}</strong></p>
+  </div>
+
+  <div class="card-footer">
+    <div><span>Duración</span><strong>{{ curso.duracion }}<small> h</small></strong></div>
+    <div class="actions">
+      <button type="button" class="btn btn-edit" (click)="onEditar()">Editar</button>
+      <button type="button" class="btn btn-delete" (click)="onEliminar()">Eliminar</button>
+    </div>
+  </div>
+</article>

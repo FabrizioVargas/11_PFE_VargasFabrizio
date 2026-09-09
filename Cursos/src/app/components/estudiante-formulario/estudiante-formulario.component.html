@@ -1,0 +1,63 @@
+<section class="form-card">
+  <p class="form-kicker">{{ cursoAEditar ? 'Actualizar registro' : 'Nuevo registro' }}</p>
+  <h2 id="form-title">{{ cursoAEditar ? 'Editar curso' : 'Registrar curso' }}</h2>
+  <p class="form-description">Completa los datos del curso para mantener el catálogo actualizado.</p>
+
+  <form #courseForm="ngForm" (ngSubmit)="courseForm.form.valid && onSubmit()" novalidate>
+    <div class="form-grid">
+      <div class="field">
+        <label for="nombre">Nombre del curso</label>
+        <input id="nombre" name="nombre" placeholder="Ej. Desarrollo web" [(ngModel)]="model.nombre" required #nombre="ngModel" />
+        <small class="field-error" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">Ingresa el nombre del curso.</small>
+      </div>
+
+      <div class="field">
+        <label for="categoria">Categoría</label>
+        <select id="categoria" name="categoria" [(ngModel)]="model.categoria" required #categoria="ngModel">
+          <option value="" disabled selected>Seleccione la categoría</option>
+          <option *ngFor="let categoriaItem of categorias" [value]="categoriaItem">{{ categoriaItem }}</option>
+        </select>
+        <small class="field-error" *ngIf="categoria.invalid && (categoria.dirty || categoria.touched)">Selecciona una categoría.</small>
+      </div>
+
+      <div class="field">
+        <label for="duracion">Duración (horas)</label>
+        <input id="duracion" name="duracion" type="number" min="1" max="500" placeholder="Ej. 40" [(ngModel)]="model.duracion" required #duracion="ngModel" />
+        <small class="field-error" *ngIf="duracion.invalid && (duracion.dirty || duracion.touched)">Ingresa una duración válida.</small>
+      </div>
+
+      <div class="field">
+        <label for="modalidad">Modalidad</label>
+        <select id="modalidad" name="modalidad" [(ngModel)]="model.modalidad" required #modalidad="ngModel">
+          <option value="" disabled selected>Seleccione la modalidad</option>
+          <option *ngFor="let modalidadItem of modalidades" [value]="modalidadItem">{{ modalidadItem }}</option>
+        </select>
+        <small class="field-error" *ngIf="modalidad.invalid && (modalidad.dirty || modalidad.touched)">Selecciona una modalidad.</small>
+      </div>
+
+      <div class="field">
+        <label for="instructor">Instructor</label>
+        <input id="instructor" name="instructor" placeholder="Ej. María Torres" [(ngModel)]="model.instructor" required #instructor="ngModel" />
+        <small class="field-error" *ngIf="instructor.invalid && (instructor.dirty || instructor.touched)">Ingresa el instructor.</small>
+      </div>
+
+      <div class="field">
+        <label for="nivel">Nivel</label>
+        <select id="nivel" name="nivel" [(ngModel)]="model.nivel" required #nivel="ngModel">
+          <option value="" disabled selected>Seleccione el nivel</option>
+          <option *ngFor="let nivelItem of niveles" [value]="nivelItem">{{ nivelItem }}</option>
+        </select>
+        <small class="field-error" *ngIf="nivel.invalid && (nivel.dirty || nivel.touched)">Selecciona un nivel.</small>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">
+        {{ cursoAEditar ? 'Actualizar curso' : 'Guardar curso' }}
+      </button>
+      <button *ngIf="cursoAEditar" type="button" class="btn btn-secondary" (click)="onCancelar()">
+        Cancelar
+      </button>
+    </div>
+  </form>
+</section>

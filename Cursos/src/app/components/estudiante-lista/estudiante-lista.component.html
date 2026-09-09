@@ -1,0 +1,42 @@
+<section class="list-section">
+  <div class="section-header">
+    <div>
+      <p class="section-kicker">Catálogo académico</p>
+      <h2>Lista de cursos</h2>
+    </div>
+    <button type="button" class="btn btn-primary btn-list-new" (click)="onNuevo()">
+      <span class="button-icon">+</span> Nuevo curso
+    </button>
+  </div>
+
+  <div class="list-toolbar">
+    <label class="search-box">
+      <span aria-hidden="true">⌕</span>
+      <input type="search" placeholder="Buscar curso o instructor..." [(ngModel)]="busqueda" />
+    </label>
+    <select aria-label="Filtrar por categoría" [(ngModel)]="categoriaSeleccionada">
+      <option value="">Todas las categorías</option>
+      <option *ngFor="let categoria of categorias" [value]="categoria">{{ categoria }}</option>
+    </select>
+  </div>
+
+  <div class="results-summary">{{ cursosFiltrados.length }} de {{ cursos.length }} cursos</div>
+
+  <div class="student-grid" *ngIf="cursosFiltrados.length; else vacio">
+    <app-estudiante-card
+      *ngFor="let curso of cursosFiltrados"
+      [curso]="curso"
+      (editar)="onEditar($event)"
+      (eliminar)="onEliminar($event)">
+    </app-estudiante-card>
+  </div>
+
+  <ng-template #vacio>
+    <div class="empty-state">
+      <span class="empty-icon">⌕</span>
+      <strong>{{ cursos.length ? 'No encontramos coincidencias' : 'No hay cursos registrados' }}</strong>
+      <p>{{ cursos.length ? 'Prueba con otro nombre, instructor o categoría.' : 'Comienza registrando el primer curso.' }}</p>
+      <button *ngIf="!cursos.length" type="button" class="btn btn-primary" (click)="onNuevo()">Registrar curso</button>
+    </div>
+  </ng-template>
+</section>
