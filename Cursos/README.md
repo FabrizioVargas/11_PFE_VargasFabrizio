@@ -1,21 +1,26 @@
-# Gestión de Estudiantes
+# Gestión de Cursos
 
 Aplicación web desarrollada con Angular para administrar la información de los
-estudiantes mediante un CRUD completo. El sistema permite registrar, consultar,
-editar y eliminar estudiantes desde una interfaz sencilla y organizada.
+cursos mediante un CRUD completo. El sistema permite registrar, consultar,
+editar y eliminar cursos desde una interfaz sencilla y organizada.
+
+Este proyecto forma parte de un sistema académico y tiene como objetivo
+facilitar la administración de las asignaturas disponibles. De esta manera se
+puede mantener actualizada la oferta académica y consultar rápidamente la
+información de cada curso.
 
 ## Funcionalidades
 
-- Registrar nuevos estudiantes con sus datos principales.
-- Visualizar los estudiantes registrados en tarjetas individuales.
-- Buscar estudiantes por nombre o información relacionada.
-- Filtrar el listado por grado.
-- Editar la información de un estudiante existente.
-- Eliminar estudiantes del listado.
+- Registrar nuevos cursos con sus datos principales.
+- Visualizar los cursos registrados en tarjetas individuales.
+- Buscar cursos por nombre o información relacionada.
+- Filtrar el listado por categoría o grado.
+- Editar la información de un curso existente.
+- Eliminar cursos del listado.
 
-Cada estudiante muestra información como nombre, grado, edad, correo y promedio.
-La aplicación está organizada en componentes para las tarjetas, el formulario y
-el listado de estudiantes.
+Cada curso muestra información como nombre, código, docente responsable,
+créditos y horario. La aplicación está organizada en componentes para las
+tarjetas, el formulario y el listado de cursos.
 
 ## Tecnologías utilizadas
 
