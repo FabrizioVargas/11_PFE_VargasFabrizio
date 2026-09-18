@@ -1,0 +1,37 @@
+<main class="page-shell">
+  <header class="topbar">
+    <div class="brand-mark"><span>LB</span> BIBLIOTECA DIGITAL</div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Biblioteca Digital</h1>
+    </div>
+  </section>
+
+  <section class="workspace">
+    <div class="books-panel panel">
+      <div class="panel-heading"><div><p class="section-kicker">Colección</p><h2>Catálogo abierto</h2></div><button class="refresh-button" type="button" (click)="loadBooks()" [disabled]="isLoading()" aria-label="Actualizar catálogo">↻</button></div>
+      <div class="search-row"><label class="search-box"><span>⌕</span><input [(ngModel)]="searchTerm" (keyup.enter)="loadBooks()" placeholder="Busca por título o autor" /></label><button class="primary-button" type="button" (click)="loadBooks()" [disabled]="isLoading()">{{ isLoading() ? 'Consultando...' : 'Buscar' }}</button></div>
+      @if (errorMessage()) { <p class="error-message">{{ errorMessage() }}</p> }
+      @if (isLoading()) { <div class="empty-state"><div class="loader"></div><p>Cargando libros...</p></div> }
+      @else if (books().length === 0) { <div class="empty-state"><span class="empty-icon">◎</span><p>No encontramos libros con esa búsqueda.</p></div> }
+      @else { <div class="book-grid">@for (book of books(); track book.key) { <article class="book-card"><div class="book-cover">@if (book.coverUrl) { <img [src]="book.coverUrl" [alt]="'Portada de ' + book.title" /> } @else { <span>LB</span> }</div><div class="book-info"><h3>{{ book.title }}</h3><p>{{ book.author }}</p><small>{{ book.genre }} · {{ book.year || 'Edición sin fecha' }}</small></div></article> }</div> }
+    </div>
+
+    <aside class="register-panel panel">
+      <div class="panel-heading compact"><div><p class="section-kicker">Tu colección</p><h2>Nuevo ejemplar</h2></div><span class="plus-icon">+</span></div>
+      <form (ngSubmit)="registerBook()" #bookForm="ngForm">
+        <label>Título del libro<input name="title" [(ngModel)]="newBook.title" required placeholder="Ej. Cien años de soledad" /></label>
+        <label>Autor<input name="author" [(ngModel)]="newBook.author" required placeholder="Ej. Gabriel García Márquez" /></label>
+        <label>Género<input name="genre" [(ngModel)]="newBook.genre" required placeholder="Ej. Novela" /></label>
+        <label>Año de publicación<input name="year" [(ngModel)]="newBook.year" type="number" min="0" max="2026" placeholder="1967" /></label>
+        <button class="submit-button" type="submit" [disabled]="bookForm.invalid || isSaving()">{{ isSaving() ? 'Guardando...' : 'Registrar libro  →' }}</button>
+      </form>
+      @if (successMessage()) { <div class="success-message">✓ {{ successMessage() }}</div> }
+      @if (saveError()) { <div class="error-message">{{ saveError() }}</div> }
+    </aside>
+  </section>
+
+  <footer><span>Biblioteca Digital</span></footer>
+</main>
