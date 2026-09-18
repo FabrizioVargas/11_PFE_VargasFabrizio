@@ -1,59 +1,63 @@
-# BibliotecaDigital
+# Biblioteca Digital
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.21.
+Aplicación web para consultar libros y registrar nuevos ejemplares. El catálogo inicial se obtiene desde Open Library y el formulario permite agregar libros propios desde la misma pantalla.
 
-## Development server
+## ¿Qué permite hacer?
 
-To start a local development server, run:
+- Buscar libros por título, autor o género.
+- Consultar información de Open Library, como título, autor, género, año y portada.
+- Registrar un libro con título, autor, género y año.
+- Ver el libro registrado inmediatamente en el catálogo.
+- Mantener los libros registrados en el navegador usando `localStorage`.
 
-```bash
-ng serve
-```
+## Tecnologías utilizadas
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Angular 21
+- TypeScript
+- HTML y SCSS
+- `HttpClient` para las peticiones HTTP
+- Open Library para consultar libros
+- JSONPlaceholder para simular el registro mediante `POST`
 
-## Code scaffolding
+## Cómo ejecutar el proyecto
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Se necesita tener instalado Node.js y npm.
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+1. Entrar a la carpeta del proyecto:
 
 ```bash
-ng build
+cd biblioteca-digital
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+2. Instalar las dependencias:
 
 ```bash
-ng test
+npm install
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+3. Iniciar el servidor de desarrollo:
 
 ```bash
-ng e2e
+npm start
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Luego abrir `http://localhost:4200/` en el navegador.
 
-## Additional Resources
+## Comandos disponibles
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+npm start                 # Inicia la aplicación
+npm run build             # Genera la versión de producción
+npm test -- --watch=false # Ejecuta las pruebas sin modo interactivo
+```
+
+## Organización principal
+
+- `src/app/app.html`: estructura de la pantalla, buscador y formulario.
+- `src/app/app.ts`: controla los eventos y el estado de la pantalla.
+- `src/app/libro.service.ts`: realiza las peticiones y transforma los datos de las APIs.
+- `src/app/app.scss`: estilos de la aplicación.
+
+## Nota sobre el registro
+
+Open Library se utiliza para consultar libros, pero no ofrece un endpoint para guardar nuevos registros. Por eso el formulario envía los datos mediante `POST` a JSONPlaceholder y también los guarda localmente en el navegador para que el libro se pueda seguir viendo en la aplicación.
